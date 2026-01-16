@@ -1,0 +1,12 @@
+@baseurl = http://localhost:3000
+
+### Create Role
+POST {{baseurl}}/api/v1/cars
+Content-Type: application/json
+
+{
+  "make" : "Hyundai",
+  "model": "H-300",
+  "year": 2024,
+  "price": 13000
+}
