@@ -41,10 +41,12 @@ app.get("/", (req, res) => {
   res.send("Hello from the cars api");
 });
 
+//get all cars
 router.get("/", (req, res) => {
   res.json(cars);
 });
 
+// get one car
 router.get("/:id", (req, res) => {
   const id = Number(req.params.id);
   const car = cars.find((c) => c.id === id);
@@ -54,6 +56,7 @@ router.get("/:id", (req, res) => {
   res.json(car);
 });
 
+//insert cars
 router.post("/", (req, res) => {
   const { make, model, year, price } = req.body;
 
@@ -72,6 +75,7 @@ router.post("/", (req, res) => {
   res.status(201).json(newCar);
 });
 
+// update car
 router.put("/:id", (req, res) => {
   const id = Number(req.params.id);
   const index = cars.findIndex((c) => c.id === id);
@@ -90,6 +94,7 @@ router.put("/:id", (req, res) => {
   res.json(cars[index]);
 });
 
+// delete car
 router.delete("/:id", (req, res) => {
   const id = Number(req.params.id);
   const index = cars.findIndex((c) => c.id === id);
